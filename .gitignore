@@ -1,2 +1,4 @@
 dev/
 data_env/
+.env
+.DS_Store
