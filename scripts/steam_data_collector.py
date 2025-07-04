@@ -128,16 +128,6 @@ def process_and_save_game_details(games_to_process, filename="steam_games_proces
         print("No games to process for detailed information.")
         return
 
-    # Define all possible fieldnames to ensure consistent CSV headers
-    # This list should cover all fields you expect from both APIs
-    fieldnames = [
-        "appid", "name", "is_free", "detailed_description", "about_the_game",
-        "short_description", "header_image", "website", "pc_requirements",
-        "legal_notice", "developers", "publishers", "price_overview",
-        "metacritic", "categories", "genres", "screenshots", "movies",
-        "release_date", "background", "positive", "negative", "score_rank", "tags"
-    ]
-
     processed_games_data = []
 
     for i, game in enumerate(games_to_process):
@@ -170,6 +160,7 @@ def process_and_save_game_details(games_to_process, filename="steam_games_proces
                 "background": steam_details.get("background"),
                 "positive": steamspy_details.get("positive"),
                 "negative": steamspy_details.get("negative"),
+                "owners": steamspy_details.get("owners"),
                 "score_rank": steamspy_details.get("score_rank"),
                 "tags": steamspy_details.get("tags")
             }
